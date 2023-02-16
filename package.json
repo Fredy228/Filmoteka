@@ -1,21 +1,21 @@
 {
-  "name": "parcel-project-template",
+  "name": "Filmoteka",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://smisyuk4.github.io/filmoteka_mriia_goit_project",
+  "homepage": "https://Fredy228.github.io/Filmoteka",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /filmoteka_mriia_goit_project/"
+    "build": "parcel build src/*.html --public-url /Filmoteka/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/Fredy228/Filmoteka.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https://github.com/Fredy228/Filmoteka/issues"
   },
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
