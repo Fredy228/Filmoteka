@@ -1,4 +1,4 @@
-import { doc } from "firebase/firestore/lite";
+import { doc } from 'firebase/firestore/lite';
 
 export const refs = {
   body: document.querySelector('body'),
@@ -17,18 +17,20 @@ export const refs = {
 
   // main
   container: document.querySelector('[data-film-table-list]'),
-  headerButtons:document.querySelector('.headerButtons'),
-  boxNumbersPage: document.querySelector('.container__numbers-page'),
+  headerButtons: document.querySelector('.headerButtons'),
+  numbersPageSearch: document.querySelector('.number-page__search'),
+  numbersPageTrand: document.querySelector('.number-page__trand'),
+  numbersPageFilter: document.querySelector('.number-page__filter'),
 
   modalOverlay: document.querySelector('.modal-film__card-overlay'),
   containerModal: document.querySelector('[data-modal-content]'),
 
   //color switcher
   colorSelector: document.querySelector('.color--input'),
-  
+
   //translate
-  translateCheckboxRef: document.querySelector(".translate"),
-  searchFormInputRef: document.querySelector(".search-form__input"),
+  translateCheckboxRef: document.querySelector('.translate'),
+  searchFormInputRef: document.querySelector('.search-form__input'),
   elementForTranslate: document.querySelectorAll('[data-text]'),
 
   //login
@@ -45,7 +47,7 @@ export const refs = {
   btnUp: document.querySelector('.btn-up'),
 
   //modal team
-  modalTeam: document.getElementById("modal-team"),
-  modalTeamBtnOpen: document.getElementById("modal-team-Btn"),
-  modalTEamBtnClose: document.getElementsByClassName("close")[0], 
+  modalTeam: document.getElementById('modal-team'),
+  modalTeamBtnOpen: document.getElementById('modal-team-Btn'),
+  modalTEamBtnClose: document.getElementsByClassName('close')[0],
 };

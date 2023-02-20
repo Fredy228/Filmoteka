@@ -1,7 +1,29 @@
 import { refs } from './refs';
 
-export function paginationPages({ page, total_pages }) {
-  refs.boxNumbersPage.innerHTML = '';
+export function paginationPages(resalt, typeSearch) {
+  const { page, total_pages } = resalt;
+  function chooseTypeSearch(type) {
+    switch (type) {
+      case 'trand':
+        console.log('trand-true');
+        return refs.numbersPageTrand;
+
+      case 'filter':
+        console.log('filter-true');
+        return refs.numbersPageFilter;
+
+      case 'search':
+        console.log('search-true');
+        return refs.numbersPageSearch;
+
+      default:
+        return refs.numbersPageTrand;
+    }
+  }
+  let boxNumbersPage = chooseTypeSearch(typeSearch);
+  refs.numbersPageFilter.innerHTML = '';
+  refs.numbersPageSearch.innerHTML = '';
+  refs.numbersPageTrand.innerHTML = '';
   let markup = [];
   if (document.documentElement.clientWidth > 767) {
     //   Початок
@@ -24,7 +46,8 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   До 9 сторінок
     if (total_pages < 9) {
@@ -36,7 +59,7 @@ export function paginationPages({ page, total_pages }) {
           `<li class="container__numbers-item" data-page="${index}">${index}</li>`
         );
       }
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Середина
     if (total_pages > 9 && page >= 6 && page < total_pages - 6) {
@@ -65,7 +88,7 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Кінець
     if (total_pages > 9 && page > total_pages - 6) {
@@ -82,10 +105,7 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML(
-        'beforeend',
-        markup.reverse().join('')
-      );
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.reverse().join(''));
     }
   } else {
     //   Початок
@@ -104,7 +124,7 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   До 6 сторінок
     if (total_pages < 6) {
@@ -116,7 +136,7 @@ export function paginationPages({ page, total_pages }) {
           `<li class="container__numbers-item" data-page="${index}">${index}</li>`
         );
       }
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Середина
     if (total_pages > 5 && page >= 4 && page < total_pages - 4) {
@@ -139,7 +159,7 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Кінець
     if (total_pages > 5 && page > total_pages - 4) {
@@ -154,32 +174,29 @@ export function paginationPages({ page, total_pages }) {
       markup.push(
         `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
       );
-      refs.boxNumbersPage.insertAdjacentHTML(
-        'beforeend',
-        markup.reverse().join('')
-      );
+      boxNumbersPage.insertAdjacentHTML('beforeend', markup.reverse().join(''));
     }
   }
   // Активна сторінка
   const targetActice = document.querySelector(`[data-page="${page}"]`);
   targetActice.classList.add('is-active-page');
   // Стрілки
-  if (
-    (total_pages > 9 && document.documentElement.clientWidth > 767) ||
-    (total_pages > 5 && document.documentElement.clientWidth < 768)
-  ) {
-    refs.boxNumbersPage.firstElementChild.addEventListener('click', () => {
-      let numPage = page;
-      if (numPage > 1) {
-        window.filterHendler.updateFilters(numPage - 1);
-      }
-    });
-    refs.boxNumbersPage.lastElementChild.addEventListener('click', () => {
-      let numPage = page;
-      let allPages = total_pages;
-      if (numPage < allPages) {
-        window.filterHendler.updateFilters(numPage + 1);
-      }
-    });
-  }
+  // if (
+  //   (total_pages > 9 && document.documentElement.clientWidth > 767) ||
+  //   (total_pages > 5 && document.documentElement.clientWidth < 768)
+  // ) {
+  //   boxNumbersPage.firstElementChild.addEventListener('click', () => {
+  //     let numPage = page;
+  //     if (numPage > 1) {
+  //       window.filterHendler.updateFilters(numPage - 1);
+  //     }
+  //   });
+  //   boxNumbersPage.lastElementChild.addEventListener('click', () => {
+  //     let numPage = page;
+  //     let allPages = total_pages;
+  //     if (numPage < allPages) {
+  //       window.filterHendler.updateFilters(numPage + 1);
+  //     }
+  //   });
+  // }
 }

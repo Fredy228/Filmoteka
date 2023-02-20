@@ -7,12 +7,10 @@ import { hidenButton, upClick } from './scripts/scroll-up';
 import { changeColor, setColor } from './scripts/color-select';
 import FilterHendler from './scripts/filter';
 import { initTrending } from './scripts/get-tranding';
-import { sliderInit } from './scripts/slider';
 import { Modal } from './scripts/modal-film';
-import {spinerStart, spinerStop } from './scripts/loader';
-import { News } from "./scripts/fetch-news-api";
+import { spinerStart, spinerStop } from './scripts/loader';
+import { findByNameSearch, pageForFindByeName } from './scripts/find-by-name';
 
-import Notiflix from 'notiflix';
 import './scripts/get-tranding';
 import './scripts/find-by-name';
 import './scripts/find-trailer';
@@ -20,7 +18,6 @@ import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-team';
-
 
 //ініаціплізація глобальних класів
 window.filmoteka = new Filmoteka();
@@ -30,7 +27,6 @@ window.filterHendler = new FilterHendler();
 window.modal = new Modal();
 window.loader = spinerStart;
 window.loaderRemove = spinerStop;
-const newsapi = new News;
 
 // login по кнопці
 refs.login.addEventListener('click', e => {
@@ -47,7 +43,7 @@ setLanguage(); //для першого відображення тексту, п
 window.movieLibrary.updateLang();
 document.querySelector('.translate').addEventListener('click', () => {
   changeLanguage();
-  localStorage.removeItem('newsArr')
+  localStorage.removeItem('newsArr');
   location.reload();
 });
 
@@ -55,7 +51,6 @@ document.querySelector('.translate').addEventListener('click', () => {
 setColor();
 refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object
-
 
 //Функції зміни жанру, року або рейтингу
 initFilterHendler();
@@ -67,23 +62,44 @@ function initFilterHendler() {
     window.filmoteka.filterByRating = localStorage.getItem('filterByRating');
     rating.value = localStorage.getItem('filterByRating');
   }
-//жанр
+  //жанр
   let genre = document.querySelector('#genre-filter');
   genre.addEventListener('change', window.filterHendler.genreFilterOnChange);
   if (localStorage.getItem('filterByGenre')) {
     window.filmoteka.filterByGenre = localStorage.getItem('filterByGenre');
     genre.value = localStorage.getItem('filterByGenre');
   }
- //рік 
+  //рік
   let date = document.querySelector('#date-filter');
   date.addEventListener('change', window.filterHendler.dataFilterOnChange);
   if (localStorage.getItem('dataFilter')) {
     window.filmoteka.dataFilter = localStorage.getItem('dataFilter');
     date.value = localStorage.getItem('dataFilter');
   }
-  window.filterHendler.updateFilters()
-
+  window.filterHendler.updateFilters();
 }
 
-// Формування слайдеру
-sliderInit();
+//Пагінація сторінок
+
+refs.numbersPageTrand.addEventListener('click', selectPageTrand);
+refs.numbersPageFilter.addEventListener('click', selectPageFilter);
+refs.numbersPageSearch.addEventListener('click', selectPageSearch);
+
+function selectPageTrand(event) {
+  if (event.target.nodeName === 'LI') {
+    initTrending(event.target.textContent);
+  }
+}
+
+function selectPageFilter(event) {
+  if (event.target.nodeName === 'LI') {
+    window.filterHendler.updateFilters(event.target.textContent);
+  }
+}
+
+function selectPageSearch(event) {
+  if (event.target.nodeName === 'LI') {
+    pageForFindByeName(event.target.textContent);
+    findByNameSearch();
+  }
+}

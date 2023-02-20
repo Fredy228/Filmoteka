@@ -17,33 +17,33 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .dark-color{
     // header main
-    --bg-image-320: url(/src/images/header-main/header-green-2-320.jpg);
-    --bg-image-320-2x: url(/src/images/header-main/header-green-2-320@2x.jpg);
-    --bg-image-320-2x-webp: url(/src/images/header-main/header-green-2-320@2x.webp);
+    --bg-image-320: url(/src/images/header-main/header-320.jpg);
+    --bg-image-320-2x: url(/src/images/header-main/header-320@2x.jpg);
+    --bg-image-320-2x-webp: url(/src/images/header-main/header-320@2x.webp);
 
-    --bg-image-768: url(/src/images/header-main/header-green-2-768@2x.jpg);
-    --bg-image-768-2x: url(/src/images/header-main/header-green-2-768@2x.jpg);
-    --bg-image-768-2x-webp: url(/src/images/header-main/header-green-2-768@2x.webp);
+    --bg-image-768: url(/src/images/header-main/header-768@2x.jpg);
+    --bg-image-768-2x: url(/src/images/header-main/header-768@2x.jpg);
+    --bg-image-768-2x-webp: url(/src/images/header-main/header-768@2x.webp);
 
-    --bg-image-1280: url(/src/images/header-main/header-green-2-1280@2x.jpg);
-    --bg-image-1280-2x: url(/src/images/header-main/header-green-2-1280@2x.jpg);
-    --bg-image-1280-2x-webp: url(/src/images/header-main/header-green-2-1280@2x.webp);
+    --bg-image-1280: url(/src/images/header-main/header-1280@2x.jpg);
+    --bg-image-1280-2x: url(/src/images/header-main/header-1280@2x.jpg);
+    --bg-image-1280-2x-webp: url(/src/images/header-main/header-1280@2x.webp);
     
     //header library
-    --bg-image-lib-320: url(/src/images/header-library/header-library-green-320.jpg);
-    --bg-image-lib-320-2x: url(/src/images/header-library/header-library-green-320@2x.jpg);
-    --bg-image-lib-320-2x-webp: url(/src/images/header-library/header-library-green-320@2x.webp);
+    --bg-image-lib-320: url(/src/images/header-library/header-library-320.jpg);
+    --bg-image-lib-320-2x: url(/src/images/header-library/header-library-320@2x.jpg);
+    --bg-image-lib-320-2x-webp: url(/src/images/header-library/header-library-320@2x.webp);
 
-    --bg-image-lib-768: url(/src/images/header-library/header-library-green-768.jpg);
-    --bg-image-lib-768-2x: url(/src/images/header-library/header-library-green-768@2x.jpg);
-    --bg-image-lib-768-2x-webp: url(/src/images/header-library/header-library-green-768@2x.webp);
+    --bg-image-lib-768: url(/src/images/header-library/header-library-768.jpg);
+    --bg-image-lib-768-2x: url(/src/images/header-library/header-library-768@2x.jpg);
+    --bg-image-lib-768-2x-webp: url(/src/images/header-library/header-library-768@2x.webp);
 
-    --bg-image-lib-1280: url(/src/images/header-library/header-library-green-1280.jpg);
-    --bg-image-lib-1280-2x: url(/src/images/header-library/header-library-green-1280@2x.jpg);
-    --bg-image-lib-1280-2x-webp: url(/src/images/header-library/header-library-green-1280@2x.webp);
+    --bg-image-lib-1280: url(/src/images/header-library/header-library-1280.jpg);
+    --bg-image-lib-1280-2x: url(/src/images/header-library/header-library-1280@2x.jpg);
+    --bg-image-lib-1280-2x-webp: url(/src/images/header-library/header-library-1280@2x.webp);
 
     --body-color: #313131;
-    --mainRedColor: #1d7702;
+    --mainRedColor: #FF001B;
     --mainBlackColor: #d9d9d9;
     --mainWhiteColor: #363636;
     --secTextColor: #646464;
@@ -51,15 +51,16 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --mainWhiteColorFooter: rgb(194, 194, 194);
     
     
-    --filterColor: #1d7702;
-    --filterText: #2f9b29;
-    --cardText: #2f9b29;
+    --filterColor: #b32331;
+    --filterText: #ff6b01;
+    --cardText: #ff6b01;
     
     --thirdColor: #444444;
 
-    --cardTextOpac: rgba(26, 174, 0, 0.5); // rgba(255, 107, 8, 0.5)
+    --cardTextOpac: #ff6b0181; // rgba(255, 107, 8, 0.5)
     --bgColorHeader: rgba(0, 0, 0, 0.936);
     --notValid:#ff0019;
+    --footerTextColor:rgb(194, 194, 194);
     --boxShadowHeader1: rgba(14, 112, 2, 0.25);
     --boxShadowHeader2: rgba(14, 112, 2, 0.12);
     --boxShadowHeader3: rgba(14, 112, 2, 0.17);
@@ -67,8 +68,8 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --InputHeaderBgColor: #067b061a;
     --inputModalBgColor: #101a07;
 
-    --boxShadowModal1: rgba(26, 174, 0, 0.603);
-    --boxShadowModal2: rgb(26, 174, 0);
+    --boxShadowModal1: #ff6b01;
+    --boxShadowModal2: #ff6b01;
 }
 
 .light-color {

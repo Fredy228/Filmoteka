@@ -81,6 +81,7 @@
 }
     
 .modal-film__close-icon {
+    fill: #ff6b01;
     width: 16px;
     height: 16px;
     transition: all 0.2s ease-in-out;
@@ -400,7 +401,7 @@
     }
 }
 .modal-film__back-btn svg, .modal-film__next-btn svg{
-    fill: #ff0000;
+    fill: #ff6b01;
     transform: scale(1.5, 1.8);
     position: absolute;
     top: 30%;

@@ -7,7 +7,7 @@ export class Filmoteka {
   constructor() {
     this._filterByRating;
     this._dateFilter;
-    this.filterByGenre
+    this.filterByGenre;
   }
 
   async fetchFilms(valueObj) {
@@ -20,8 +20,13 @@ export class Filmoteka {
       page = 1,
     } = valueObj;
 
-    const url = `${this.BASE_URL}${option}?api_key=${this.API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false`+ this.addFilterQuery() + this.addDateQuery()+this.addGenreQuery();
+    const url =
+      `${this.BASE_URL}${option}?api_key=${this.API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false` +
+      this.addFilterQuery() +
+      this.addDateQuery() +
+      this.addGenreQuery();
     return await axios.get(url).then(response => {
+      console.log(response.data);
       return response.data;
     });
   }
@@ -43,15 +48,15 @@ export class Filmoteka {
   }
 
   get filterByGenre() {
-      return this._filterByGenre;
+    return this._filterByGenre;
   }
 
   set filterByGenre(genre) {
-      this._filterByGenre = genre;
-  };
+    this._filterByGenre = genre;
+  }
 
   get filterByRating() {
-      return this._filterByRating;
+    return this._filterByRating;
   }
 
   set filterByRating(rating) {
@@ -62,11 +67,11 @@ export class Filmoteka {
     if (rating === undefined) {
       this._filterByRating = undefined;
     }
-  };
+  }
 
   get dataFilter() {
-      return this._dateFilter;
-  };
+    return this._dateFilter;
+  }
 
   set dataFilter(date) {
     if (date >= 1900) {
@@ -75,26 +80,26 @@ export class Filmoteka {
     if (date === undefined) {
       this._dateFilter = undefined;
     }
-  };
+  }
 
   addGenreQuery() {
     if (this.filterByGenre) {
-      return `&with_genres=${this._filterByGenre}`
+      return `&with_genres=${this._filterByGenre}`;
     }
     return '';
   }
 
   addDateQuery() {
     if (this.dataFilter) {
-      return `&primary_release_year=${this._dateFilter}`
+      return `&primary_release_year=${this._dateFilter}`;
     }
     return '';
   }
 
   addFilterQuery() {
     if (this.filterByRating) {
-      return `&vote_average.gte=${this._filterByRating}`
+      return `&vote_average.gte=${this._filterByRating}`;
     }
     return '';
-  } 
+  }
 }
