@@ -29,11 +29,13 @@ export function paginationPages(resalt, typeSearch) {
     //   Початок
     if (total_pages > 9 && page < 6) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       for (let index = 1; index <= total_pages; index += 1) {
         if (index > 8) {
-          markup.push(`<span class="container__numbers-span">...</span>`);
+          markup.push(
+            `<span id='right' class="container__numbers-span">...</span>`
+          );
           markup.push(
             `<li class="container__numbers-item" data-page="${total_pages}">${total_pages}</li>`
           );
@@ -44,7 +46,7 @@ export function paginationPages(resalt, typeSearch) {
         );
       }
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
 
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
@@ -64,10 +66,10 @@ export function paginationPages(resalt, typeSearch) {
     //   Середина
     if (total_pages > 9 && page >= 6 && page < total_pages - 6) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       markup.push(`<li class="container__numbers-item" data-page="1">1</li>`);
-      markup.push(`<span class="container__numbers-span">...</span>`);
+      markup.push(`<span id='left' class="container__numbers-span">...</span>`);
       for (let index = page - 2; index < page; index += 1) {
         markup.push(
           `<li class="container__numbers-item" data-page="${index}">${index}</li>`
@@ -81,29 +83,31 @@ export function paginationPages(resalt, typeSearch) {
           `<li class="container__numbers-item" data-page="${index}">${index}</li>`
         );
       }
-      markup.push(`<span class="container__numbers-span">...</span>`);
+      markup.push(
+        `<span id='right' class="container__numbers-span">...</span>`
+      );
       markup.push(
         `<li class="container__numbers-item" data-page="${total_pages}">${total_pages}</li>`
       );
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Кінець
     if (total_pages > 9 && page > total_pages - 6) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
       for (let index = total_pages; index >= total_pages - 8; index -= 1) {
         markup.push(
           `<li class="container__numbers-item" data-page="${index}">${index}</li>`
         );
       }
-      markup.push(`<span class="container__numbers-span">...</span>`);
+      markup.push(`<span id='left' class="container__numbers-span">...</span>`);
       markup.push(`<li class="container__numbers-item" data-page="1">1</li>`);
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.reverse().join(''));
     }
@@ -111,7 +115,7 @@ export function paginationPages(resalt, typeSearch) {
     //   Початок
     if (total_pages > 5 && page < 4) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       for (let index = 1; index <= total_pages; index += 1) {
         if (index > 5) {
@@ -122,7 +126,7 @@ export function paginationPages(resalt, typeSearch) {
         );
       }
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
@@ -141,7 +145,7 @@ export function paginationPages(resalt, typeSearch) {
     //   Середина
     if (total_pages > 5 && page >= 4 && page < total_pages - 4) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       for (let index = page - 2; index < page; index += 1) {
         markup.push(
@@ -157,14 +161,14 @@ export function paginationPages(resalt, typeSearch) {
         );
       }
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.join(''));
     }
     //   Кінець
     if (total_pages > 5 && page > total_pages - 4) {
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-right"></span></div>`
+        `<div id='right' class="container__numbers-arrow-box"><span id='right' class="container__numbers-arrow-right"></span></div>`
       );
       for (let index = total_pages; index >= total_pages - 5; index -= 1) {
         markup.push(
@@ -172,7 +176,7 @@ export function paginationPages(resalt, typeSearch) {
         );
       }
       markup.push(
-        `<div class="container__numbers-arrow-box"><span class="container__numbers-arrow-left"></span></div>`
+        `<div id='left' class="container__numbers-arrow-box"><span id='left' class="container__numbers-arrow-left"></span></div>`
       );
       boxNumbersPage.insertAdjacentHTML('beforeend', markup.reverse().join(''));
     }

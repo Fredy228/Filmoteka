@@ -85,9 +85,23 @@ refs.numbersPageTrand.addEventListener('click', selectPageTrand);
 refs.numbersPageFilter.addEventListener('click', selectPageFilter);
 refs.numbersPageSearch.addEventListener('click', selectPageSearch);
 
+let activePage = 1;
+
 function selectPageTrand(event) {
   if (event.target.nodeName === 'LI') {
-    initTrending(event.target.textContent);
+    activePage = event.target.textContent;
+    initTrending(activePage);
+  }
+  if (event.target.nodeName === 'DIV' || event.target.nodeName === 'SPAN') {
+    // console.log(event.target.id === 'left');
+    if (event.target.id === 'left' && activePage > 1) {
+      activePage -= 1;
+      initTrending(activePage);
+    }
+    if (event.target.id === 'right') {
+      activePage += 1;
+      initTrending(activePage);
+    }
   }
 }
 
